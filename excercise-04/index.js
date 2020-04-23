@@ -1,23 +1,27 @@
 'use strict';
 
-const credits = 23580;
-const pricePerDroid = 3000;
-let totalPrice;
-let accountBalance;
-const numberOfDroids = prompt('Сколько дроидов вы хотите купить?');
+const formatString = function(string) {
+  const formatStr = string.slice(0, 40);
 
-if (numberOfDroids === null) {
-  console.log('Отменено пользователем!');
-} else {
-  totalPrice = Number(numberOfDroids) * pricePerDroid;
-  console.log(totalPrice);
-}
+  if (string < 40) {
+    return string;
+  }
 
-if (credits < totalPrice) {
-  console.log('Недостаточно средств на счету!');
-} else if (credits > totalPrice) {
-  accountBalance = credits - totalPrice;
-  alert(
-    `Вы купили ${numberOfDroids} дроидов, на счету осталось ${accountBalance} кредитов.`,
-  );
-}
+  return formatStr.concat('...');
+};
+
+console.log(formatString('Curabitur ligula sapien, tincidunt non.'));
+// вернется оригинальная строка
+
+console.log(formatString('Vestibulum facilisis, purus nec pulvinar iaculis.'));
+// вернется форматированная строка
+
+console.log(formatString('Curabitur ligula sapien.'));
+// вернется оригинальная строка
+
+console.log(
+  formatString(
+    'Nunc sed turpis. Curabitur a felis in nunc fringilla tristique.',
+  ),
+);
+// вернется форматированная строка

@@ -1,35 +1,15 @@
 'use strict';
 
-let cost;
-const country = prompt('Выберете вашу страну');
-const countryCheck = country.toLowerCase();
+const checkForSpam = function(message) {
+  const lowerMessage = message.toLowerCase();
+  const word = lowerMessage.includes('sale') || lowerMessage.includes('spam');
+  return word;
+};
 
-switch (countryCheck) {
-  case 'китай':
-    cost = 100;
-    console.log(`Доставка в ${countryCheck} будет стоить ${cost} кредитов`);
-    break;
+console.log(checkForSpam('Latest technology news')); // false
 
-  case 'Чили':
-    cost = 250;
-    console.log(`Доставка в ${countryCheck} будет стоить ${cost} кредитов`);
-    break;
+console.log(checkForSpam('JavaScript weekly newsletter')); // false
 
-  case 'австралия':
-    cost = 170;
-    console.log(`Доставка в ${countryCheck} будет стоить ${cost} кредитов`);
-    break;
+console.log(checkForSpam('Get best sale offers now!')); // true
 
-  case 'индия':
-    cost = 80;
-    console.log(`Доставка в ${countryCheck} будет стоить ${cost} кредитов`);
-    break;
-
-  case 'ямайка':
-    cost = 120;
-    console.log(`Доставка в ${countryCheck} будет стоить ${cost} кредитов`);
-    break;
-
-  default:
-    alert('В вашей стране доставка не доступна');
-}
+console.log(checkForSpam('[SPAM] How to earn fast money?')); // true
