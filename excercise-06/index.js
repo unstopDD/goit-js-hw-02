@@ -6,7 +6,7 @@ let total = 0;
 
 do {
   input = prompt(`Введите число`);
-  if (Number.isNaN(input)) {
+  if (isNaN(input)) {
     alert('Было введено не число, попробуйте еще раз');
   } else {
     const inputNumber = Number(input);
