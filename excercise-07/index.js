@@ -4,9 +4,9 @@ const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 
 const isLoginValid = function(login) {
   if (login.length >= 4 && login.length <= 16) {
-    return false;
+    return true;
   }
-  return true;
+  return false;
 };
 
 const isLoginUnique = function(allLogins, login) {
@@ -17,7 +17,7 @@ const isLoginUnique = function(allLogins, login) {
 };
 
 const addLogin = function(allLogins, login) {
-  if (isLoginValid(login) === true) {
+  if (isLoginValid(login) === false) {
     return 'Ошибка! Логин должен быть от 4 до 16 символов';
   }
 
